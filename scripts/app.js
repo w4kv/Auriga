@@ -26,14 +26,16 @@
     let postView = new PostView(selector, mainContentSelector);
     let postController = new PostController(postView, requester, baseUrl, appKey);
 
-    userController.showRegisterPage();
-
     initEventServices();
 
     onRoute("#/", function () {
         // Check if user is logged in and if its not show the guest page, otherwise show the user page..
+        let isAdmin = sessionStorage['is-admin'];
         if(!authService.isLoggedIn()) {
             homeController.showGuestPage();
+        }
+        else if(isAdmin == "yes") {
+            homeController.showAdminPage();
         }
         else {
             homeController.showUserPage();
@@ -59,6 +61,10 @@
     onRoute("#/logout", function () {
         // Logout the current user...
         userController.logout();
+    });
+
+    onRoute("#/users", function () {
+        
     });
 
     onRoute('#/posts/create', function () {

@@ -62,14 +62,17 @@ class UserView {
 
                     let username = $('#username').val();
                     let password = $('#password').val();
+
                     let confirmPassword = $('#pass-confirm').val();
                     let fullname = $('#full-name').val();
+                    let isAdmin = $('#is-admin').val();
 
                     let data = {
                         username: username,
                         password: password,
                         confirmPassword: confirmPassword,
-                        fullname: fullname
+                        fullname: fullname,
+                        isAdmin: isAdmin
                     };
 
                     triggerEvent('register', data);

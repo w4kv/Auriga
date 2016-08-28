@@ -23,6 +23,7 @@ class UserController{
                 sessionStorage['_authToken'] = data._kmd.authtoken;
                 sessionStorage['username'] = data.username;
                 sessionStorage['fullname'] = data.fullname;
+                sessionStorage['is-admin'] = data.isAdmin;
 
                 redirectUrl("#/");
             },
